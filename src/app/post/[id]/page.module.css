@@ -1,0 +1,55 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  margin-right: 100px;
+  width: 70%;
+
+  margin-top: 100px;
+}
+
+.voteSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80px;
+  justify-content: space-evenly;
+  background-color: lightgray;
+  border-radius: 6px;
+  padding: 4px;
+  margin-top: 15px;
+}
+
+.voteSection div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: black;
+}
+
+.voteSection img {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+  .card {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  .card {
+    width: 90%;
+    margin-right: 30px;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .card {
+    min-width: 95%;
+    margin-right: 5px;
+    word-wrap: break-word;
+  }
+}
