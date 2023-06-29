@@ -26,6 +26,7 @@ function page({}) {
   const [id, setId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [responseMsg, setResponseMsg] = useState("");
+  const [addComment, setAddComment] = useState("");
 
   const { data: session } = useSession();
 
@@ -204,9 +205,9 @@ function page({}) {
       ) : (
         <div className={styles.card}>
           {" "}
-          <h3 style={{ fontSize: "14px" }}> {query.creatorName} </h3>
-          <h2> {query.title}</h2>
-          <h3> {query.description}</h3>
+          <h3 style={{ fontSize: "15px" }}> {query.creatorName} </h3>
+          <h2 className={styles.hh2}> {query.title}</h2>
+          <h3 className={styles.hh3}> {query.description}</h3>
           <div className={styles.voteSection}>
             <div>
               {" "}
@@ -238,6 +239,15 @@ function page({}) {
           ) : null}
         </div>
       )}
+      <div className={styles.addCommentContainer}>
+        <textarea
+          className={styles.descriptionField}
+          placeholder="add a comment"
+          value={addComment}
+          onChange={(e) => setAddComment(e.target.value)}
+        />
+        <button>Add</button>
+      </div>
     </div>
   );
 }

@@ -19,6 +19,7 @@ function MyProfile(props) {
         flexDirection: "column",
         alignItems: "center",
         gap: "30px",
+        marginTop: "50px",
       }}
     >
       <h3>Logged in as : {session?.user?.name} </h3>

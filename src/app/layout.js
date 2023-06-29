@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Provider>
-          {!session ? null : <NavBar />}
+          <NavBar />
           {children}
         </Provider>
       </body>

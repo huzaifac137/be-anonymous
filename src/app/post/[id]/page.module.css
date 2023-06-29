@@ -5,8 +5,22 @@
   gap: 30px;
   margin-right: 100px;
   width: 70%;
-
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  border-radius: 8px;
   margin-top: 100px;
+  padding: 20px;
+}
+
+.inputField,
+.descriptionField {
+  width: 500px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid grey;
+  margin: 20px;
+  outline: none;
 }
 
 .voteSection {
@@ -33,9 +47,29 @@
   cursor: pointer;
 }
 
+.addCommentContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.hh2 {
+  font-size: 20px;
+}
+
+.hh3 {
+  font-size: 16px;
+}
+
 @media only screen and (min-width: 900px) and (max-width: 1200px) {
   .card {
     width: 80%;
+  }
+
+  .inputField,
+  .descriptionField {
+    width: 70%;
   }
 }
 
@@ -44,6 +78,11 @@
     width: 90%;
     margin-right: 30px;
   }
+
+  .inputField,
+  .descriptionField {
+    width: 75%;
+  }
 }
 
 @media only screen and (max-width: 599px) {
@@ -51,5 +90,33 @@
     min-width: 95%;
     margin-right: 5px;
     word-wrap: break-word;
+  }
+
+  .inputField,
+  .descriptionField {
+    max-width: 80%;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+  .inputField,
+  .descriptionField {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  .inputField,
+  .descriptionField {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .inputField,
+  .descriptionField {
+    max-width: 80%;
+    width: 80%;
   }
 }

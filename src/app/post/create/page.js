@@ -26,7 +26,8 @@ function page() {
     setDesc(e.target.value);
 
     textAreaRef.current.style.height = "auto";
-    textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
+    textAreaRef.current.style.height =
+      textAreaRef.current.scrollHeight + 30 + "px";
   };
 
   async function postData() {
