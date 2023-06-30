@@ -93,7 +93,7 @@ function Signin() {
         }}
         onClick={() =>
           signIn("google", {
-            callbackUrl: `/`,
+            callbackUrl: `${process.env.NEXT_PUBLIC_VERCEL_URL}`,
           })
         }
         className={styles.btn}
