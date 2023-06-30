@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
 
+export const dynamic = "force-dynamic";
 function SignUp(props) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");

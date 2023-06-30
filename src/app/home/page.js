@@ -8,6 +8,7 @@ import Logout from "../../../components/Logout";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
+export const dynamic = "force-dynamic";
 function Posts(props) {
   const { data: session } = useSession({
     required: true,
@@ -24,11 +25,14 @@ function Posts(props) {
     try {
       setResponseMsg("");
       setIsLoading(true);
-      const response = await fetch(`/api/products`, {
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         },
-      });
+      );
 
       responseData = await response.json();
       if (response.status !== 200) {

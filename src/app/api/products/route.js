@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import connectToDB from "../../../../utlis/connectMongo";
 import productModal from "../../../../utlis/model/product";
 
+export const dynamic = "force-dynamic";
 export async function GET(req) {
   await connectToDB();
 

@@ -14,7 +14,7 @@ async function connectToDB() {
 
   if (!cached.promise) {
     mongoose.set("strictQuery", true);
-    cached.promise = await mongoose.connect("mongodb://127.0.0.1:27017/nextjs");
+    cached.promise = await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_URI);
     console.log("connected to mongoDB!");
   }
 

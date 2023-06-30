@@ -5,6 +5,7 @@ const { getToken } = require("next-auth/jwt");
 import productModal from "../../../../../../utlis/model/product";
 const jwt = require("jsonwebtoken");
 
+export const dynamic = "force-dynamic";
 export async function PATCH(request) {
   if (request.method !== "PATCH") {
     return NextResponse.json({ message: "Invalid request" }, { status: 409 });

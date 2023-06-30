@@ -3,6 +3,7 @@ import connectToDB from "../../../../../utlis/connectMongo";
 import userModal from "../../../../../utlis/model/user";
 import bcrypt from "bcryptjs";
 
+export const dynamic = "force-dynamic";
 export async function POST(request) {
   if (request.method !== "POST") {
     return NextResponse.json({ message: "invalid request" }, { status: 500 });

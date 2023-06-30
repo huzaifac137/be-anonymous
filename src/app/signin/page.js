@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import google from "../../../public/images/google.png";
 
+export const dynamic = "force-dynamic";
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

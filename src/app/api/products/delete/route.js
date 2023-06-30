@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth";
 import { getToken } from "next-auth/jwt";
 import jwt from "jsonwebtoken";
 
+export const dynamic = "force-dynamic";
 export async function DELETE(request) {
   if (request.method !== "DELETE") {
     return NextResponse.json({ message: "invalid request" }, { status: 409 });

@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import React from "react";
 import { redirect, useRouter } from "next/navigation";
 
+export const dynamic = "force-dynamic";
 function MyProfile(props) {
   const { data: session } = useSession({
     required: true,

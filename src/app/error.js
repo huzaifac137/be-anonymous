@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 
-function error({ error }) {
+function Error({ error }) {
   console.log(error);
   return <div>error</div>;
 }
 
-export default error;
+export default Error;

@@ -7,6 +7,7 @@ import userModal from "../../../../../utlis/model/user";
 import bcrypt from "bcryptjs";
 import JWT from "jsonwebtoken";
 
+export const dynamic = "force-dynamic";
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 

@@ -6,6 +6,7 @@ import { getToken } from "next-auth/jwt";
 import jwt from "jsonwebtoken";
 import { getServerSession } from "next-auth";
 
+export const dynamic = "force-dynamic";
 export async function POST(request) {
   if (request.method !== "POST") {
     return NextResponse.json({ message: "invalid request" }, { status: 409 });

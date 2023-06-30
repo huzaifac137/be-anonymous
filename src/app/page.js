@@ -40,6 +40,7 @@ export const metadata = {
 //   return products;
 // }
 
+export const dynamic = "force-dynamic";
 async function Home(props) {
   const session = await getServerSession(authOptions);
   if (!session) {
