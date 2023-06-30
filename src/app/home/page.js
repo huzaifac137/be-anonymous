@@ -24,11 +24,14 @@ function Posts(props) {
     try {
       setResponseMsg("");
       setIsLoading(true);
-      const response = await fetch("http://localhost:3000/api/products", {
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         },
-      });
+      );
 
       responseData = await response.json();
       if (response.status !== 200) {

@@ -16,7 +16,7 @@ function CommentsModal({ postId, setModalIsOpened }) {
       setResponseMsg("");
       setIsLoading(true);
       const response = await fetch(
-        `http://localhost:3000/api/products/comments/${
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/comments/${
           postId + "---" + commentsLength
         }`,
         { signal: signal },

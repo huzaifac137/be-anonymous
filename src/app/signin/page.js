@@ -35,7 +35,7 @@ function Signin() {
       const result = await signIn("credentials", {
         email: email,
         password: password,
-        callbackUrl: "http://localhost:3000",
+        callbackUrl: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
       });
     } catch (Err) {
       console.log(Err.message + "  " + Err.code);
@@ -91,7 +91,9 @@ function Signin() {
           cursor: "pointer",
         }}
         onClick={() =>
-          signIn("google", { callbackUrl: "http://localhost:3000" })
+          signIn("google", {
+            callbackUrl: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
+          })
         }
         className={styles.btn}
       >

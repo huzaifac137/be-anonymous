@@ -52,7 +52,7 @@ function page({}) {
       setResponseMsg("");
       setIsLoading(true);
       const response = await fetch(
-        `http://localhost:3000/api/products/delete`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/delete`,
         {
           method: "DELETE",
 
@@ -84,7 +84,7 @@ function page({}) {
       setResponseMsg("");
 
       const response = await fetch(
-        `http://localhost:3000/api/products/vote/up`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/vote/up`,
         {
           method: "PATCH",
 
@@ -141,7 +141,7 @@ function page({}) {
       setResponseMsg("");
 
       const response = await fetch(
-        `http://localhost:3000/api/products/vote/down`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/vote/down`,
         {
           method: "PATCH",
 
@@ -199,7 +199,7 @@ function page({}) {
       setResponseMsg2("");
       setIsPostingComment(true);
       const response = await fetch(
-        `http://localhost:3000/api/products/add-comment`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/add-comment`,
         {
           method: "POST",
 

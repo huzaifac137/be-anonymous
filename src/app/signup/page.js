@@ -32,17 +32,20 @@ function SignUp(props) {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:3000/api/users/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/signup`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          password: password,
+        }),
       },
-      body: JSON.stringify({
-        username: username,
-        email: email,
-        password: password,
-      }),
-    });
+    );
 
     const responseData = await response.json();
 
