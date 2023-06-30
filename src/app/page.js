@@ -6,7 +6,7 @@ import Logout from "../../components/Logout";
 import Posts from "./home/page";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "Huzaifa",

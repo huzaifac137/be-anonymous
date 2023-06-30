@@ -35,6 +35,9 @@ function Posts(props) {
         throw new Error(responseData.message);
       }
 
+      const products = responseData.products;
+      console.log("PRODUCTS", products);
+
       setPosts((prev) => {
         return [...prev, ...products];
       });
@@ -44,9 +47,6 @@ function Posts(props) {
       setResponseMsg(errorMessage);
       setIsLoading(false);
     }
-
-    const products = responseData.products;
-    console.log("PRODUCTS", products);
   };
 
   useEffect(() => {
@@ -87,13 +87,14 @@ function Posts(props) {
                   upvotes: item.upvotes.length,
                   downvotes: item.downvotes.length,
                   upvoter:
-                    item.upvotes.filter((i) => i === session.sub).length === 0
+                    item.upvotes.filter((i) => i === session?.sub).length === 0
                       ? ""
                       : session.sub,
                   downvoter:
-                    item.downvotes.filter((i) => i === session.sub).length === 0
+                    item.downvotes.filter((i) => i === session?.sub).length ===
+                    0
                       ? ""
-                      : session.sub,
+                      : session?.sub,
                 },
               }}
             >

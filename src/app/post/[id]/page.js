@@ -10,6 +10,8 @@ import downvote from "../../../../public/images/arrow-down.png";
 import upvoteFilled from "../../../../public/images/arrow-up-filled.png";
 import downvoteFilled from "../../../../public/images/arrow-down-filled.png";
 import Image from "next/image";
+import CommentsModal from "../../../../components/CommentsModal";
+import { createPortal } from "react-dom";
 
 function page({}) {
   const params = useParams();
@@ -27,6 +29,9 @@ function page({}) {
   const [isLoading, setIsLoading] = useState(false);
   const [responseMsg, setResponseMsg] = useState("");
   const [addComment, setAddComment] = useState("");
+  const [isPostingComment, setIsPostingComment] = useState(false);
+  const [responseMsg2, setResponseMsg2] = useState("");
+  const [openCommentsModal, setOpenCommentsModal] = useState(false);
 
   const { data: session } = useSession();
 
@@ -188,14 +193,49 @@ function page({}) {
     });
   };
 
+  const handleAddComment = async () => {
+    let responseData;
+    try {
+      setResponseMsg2("");
+      setIsPostingComment(true);
+      const response = await fetch(
+        `http://localhost:3000/api/products/add-comment`,
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            text: addComment,
+            postId: params.id,
+          }),
+        },
+      );
+
+      responseData = await response.json();
+      if (response.status !== 201) {
+        throw new Error(responseData.message);
+      }
+
+      setIsPostingComment(false);
+    } catch (error) {
+      setResponseMsg2(error.message);
+      setIsPostingComment(false);
+      return;
+    }
+
+    setAddComment("");
+    setResponseMsg2(responseData.message);
+  };
+
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "50px",
-        marginTop: "50px",
+        gap: "40px",
       }}
     >
       {isLoading && <h2>Deleting data...</h2>}
@@ -246,8 +286,26 @@ function page({}) {
           value={addComment}
           onChange={(e) => setAddComment(e.target.value)}
         />
-        <button>Add</button>
+        <button onClick={handleAddComment}>Add</button>
       </div>
+      {isPostingComment === true ? <h4>Posting comment...</h4> : null}
+      {responseMsg2 !== "" ? <h4>{responseMsg2}</h4> : null}
+
+      <h4
+        onClick={() => setOpenCommentsModal((prev) => !prev)}
+        style={{ color: "gray", cursor: "pointer", marginBottom: "10px" }}
+      >
+        See Comments
+      </h4>
+      {openCommentsModal === true
+        ? createPortal(
+            <CommentsModal
+              postId={params.id}
+              setModalIsOpened={setOpenCommentsModal}
+            />,
+            document.body,
+          )
+        : null}
     </div>
   );
 }
