@@ -36,7 +36,7 @@ function Signin() {
       const result = await signIn("credentials", {
         email: email,
         password: password,
-        callbackUrl: `${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+        callbackUrl: `/`,
       });
     } catch (Err) {
       console.log(Err.message + "  " + Err.code);
@@ -93,7 +93,7 @@ function Signin() {
         }}
         onClick={() =>
           signIn("google", {
-            callbackUrl: `${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+            callbackUrl: `/`,
           })
         }
         className={styles.btn}
