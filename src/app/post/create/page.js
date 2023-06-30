@@ -41,7 +41,7 @@ function page() {
       setResponseMsg("");
       setIsLoading(true);
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/post`,
+        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/post`,
         {
           method: "POST",
 

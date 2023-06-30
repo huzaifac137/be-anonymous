@@ -33,7 +33,7 @@ function SignUp(props) {
     e.preventDefault();
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/signup`,
+      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/users/signup`,
       {
         method: "POST",
         headers: {

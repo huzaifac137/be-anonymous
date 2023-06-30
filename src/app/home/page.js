@@ -25,7 +25,7 @@ function Posts(props) {
       setResponseMsg("");
       setIsLoading(true);
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products`,
+        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products`,
         {
           headers: {
             "Content-Type": "application/json",
