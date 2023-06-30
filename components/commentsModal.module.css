@@ -22,7 +22,7 @@
   align-items: flex-start;
 
   gap: 20px;
-
+  overflow: auto;
   margin-top: 100px;
   width: 90%;
   height: 70%;
