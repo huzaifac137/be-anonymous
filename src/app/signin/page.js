@@ -36,7 +36,7 @@ function Signin() {
       const result = await signIn("credentials", {
         email: email,
         password: password,
-        callbackUrl: `/`,
+        callbackUrl: `${process.env.NEXT_PUBLIC_VERCEL_URL}`,
       });
     } catch (Err) {
       console.log(Err.message + "  " + Err.code);
