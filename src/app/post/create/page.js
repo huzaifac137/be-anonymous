@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 
-function Page() {
+function page() {
   const textAreaRef = useRef(null);
   const [title, setTitle] = useState("");
   const [Desc, setDesc] = useState("");
@@ -106,4 +106,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default page;
