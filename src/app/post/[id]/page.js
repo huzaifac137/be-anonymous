@@ -13,7 +13,7 @@ import Image from "next/image";
 import CommentsModal from "../../../../components/CommentsModal";
 import { createPortal } from "react-dom";
 
-function page({}) {
+function Page({}) {
   const params = useParams();
   const [query, setQuery] = useState({
     title: "",
@@ -310,4 +310,4 @@ function page({}) {
   );
 }
 
-export default page;
+export default Page;
