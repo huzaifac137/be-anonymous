@@ -93,7 +93,7 @@ function Signin() {
         }}
         onClick={() =>
           signIn("google", {
-             callbackUrl: `${process.env.NEXT_PUBLIC_GOOGLE_CALLBACK}`
+             callbackUrl: `/`
           })
         }
         className={styles.btn}
