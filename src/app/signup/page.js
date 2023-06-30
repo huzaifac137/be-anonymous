@@ -33,20 +33,17 @@ function SignUp(props) {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/users/signup`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: username,
-          email: email,
-          password: password,
-        }),
+    const response = await fetch(`/api/users/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password,
+      }),
+    });
 
     const responseData = await response.json();
 

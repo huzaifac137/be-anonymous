@@ -16,9 +16,7 @@ function CommentsModal({ postId, setModalIsOpened }) {
       setResponseMsg("");
       setIsLoading(true);
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/comments/${
-          postId + "---" + commentsLength
-        }`,
+        `/api/products/comments/${postId + "---" + commentsLength}`,
         { signal: signal },
         {
           headers: {

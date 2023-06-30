@@ -41,21 +41,18 @@ function Page() {
     try {
       setResponseMsg("");
       setIsLoading(true);
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/post`,
-        {
-          method: "POST",
+      const response = await fetch(`/api/products/post`, {
+        method: "POST",
 
-          headers: {
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify({
-            title: title,
-            description: Desc,
-          }),
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+
+        body: JSON.stringify({
+          title: title,
+          description: Desc,
+        }),
+      });
 
       responseData = await response.json();
       if (response.status !== 201) {

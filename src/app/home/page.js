@@ -25,14 +25,11 @@ function Posts(props) {
     try {
       setResponseMsg("");
       setIsLoading(true);
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
+      const response = await fetch(`/api/products`, {
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+      });
 
       responseData = await response.json();
       if (response.status !== 200) {

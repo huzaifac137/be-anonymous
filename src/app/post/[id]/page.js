@@ -52,17 +52,14 @@ function Page({}) {
     try {
       setResponseMsg("");
       setIsLoading(true);
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/delete`,
-        {
-          method: "DELETE",
+      const response = await fetch(`/api/products/delete`, {
+        method: "DELETE",
 
-          headers: {
-            "Content-Type": "application/json",
-            "X-ID": params.id,
-          },
+        headers: {
+          "Content-Type": "application/json",
+          "X-ID": params.id,
         },
-      );
+      });
 
       responseData = await response.json();
       if (response.status !== 201) {
@@ -84,20 +81,17 @@ function Page({}) {
     try {
       setResponseMsg("");
 
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/vote/up`,
-        {
-          method: "PATCH",
+      const response = await fetch(`/api/products/vote/up`, {
+        method: "PATCH",
 
-          headers: {
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify({
-            id: params.id,
-          }),
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+
+        body: JSON.stringify({
+          id: params.id,
+        }),
+      });
 
       responseData = await response.json();
       if (response.status !== 201) {
@@ -141,20 +135,17 @@ function Page({}) {
     try {
       setResponseMsg("");
 
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/vote/down`,
-        {
-          method: "PATCH",
+      const response = await fetch(`/api/products/vote/down`, {
+        method: "PATCH",
 
-          headers: {
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify({
-            id: params.id,
-          }),
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+
+        body: JSON.stringify({
+          id: params.id,
+        }),
+      });
 
       responseData = await response.json();
       if (response.status !== 201) {
@@ -199,20 +190,17 @@ function Page({}) {
     try {
       setResponseMsg2("");
       setIsPostingComment(true);
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/add-comment`,
-        {
-          method: "POST",
+      const response = await fetch(`/api/products/add-comment`, {
+        method: "POST",
 
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            text: addComment,
-            postId: params.id,
-          }),
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({
+          text: addComment,
+          postId: params.id,
+        }),
+      });
 
       responseData = await response.json();
       if (response.status !== 201) {
