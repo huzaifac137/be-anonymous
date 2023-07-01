@@ -23,6 +23,7 @@ export async function POST(request) {
       );
     }
   } catch (err) {
+    console.log("ERROR : ", err);
     return NextResponse.json(
       { message: "Something went wrong!" },
       { status: 500 },
@@ -63,7 +64,7 @@ export async function POST(request) {
   }
 
   return NextResponse.json(
-    { message: "User created successfully!" },
+    { message: "User created successfully! Go back and login" },
     { status: 201 },
   );
 }

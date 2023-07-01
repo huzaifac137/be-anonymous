@@ -10,6 +10,8 @@ function SignUp(props) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [responseMsg, setResponseMsg] = useState("");
 
   const { status } = useSession();
 
@@ -31,23 +33,34 @@ function SignUp(props) {
   }
 
   async function handleSubmit(e) {
-    e.preventDefault();
+    try {
+      e.preventDefault();
+      setResponseMsg("");
+      setIsLoading(true);
+      const response = await fetch(`/api/users/signup`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          password: password,
+        }),
+      });
 
-    const response = await fetch(`/api/users/signup`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        email: email,
-        password: password,
-      }),
-    });
+      const responseData = await response.json();
 
-    const responseData = await response.json();
+      if (response.status !== 201) {
+        throw new Error(responseData.message);
+      }
 
-    console.log(responseData);
+      setResponseMsg(responseData.message);
+      setIsLoading(false);
+    } catch (error) {
+      setResponseMsg(error.message);
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -85,6 +98,13 @@ function SignUp(props) {
       />
 
       <button className={styles.btn}>Signup</button>
+
+      {isLoading === true ? (
+        <h4 style={{ marginBottom: "10px" }}> Submitting...</h4>
+      ) : null}
+      {responseMsg !== "" ? (
+        <h4 style={{ marginBottom: "10px" }}>{responseMsg}</h4>
+      ) : null}
     </form>
   );
 }
