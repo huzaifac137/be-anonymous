@@ -88,7 +88,7 @@ function CommentsModal({ postId, setModalIsOpened }) {
         </h3>
 
         {isLoading === true ? (
-          <h3 style={{ alignSelf: "center" }}>Loading comments....</h3>
+          <h4 style={{ alignSelf: "center" }}>Loading comments....</h4>
         ) : null}
         {responseMsg !== "" ? (
           <h3 style={{ alignSelf: "center" }}>{responseMsg}</h3>

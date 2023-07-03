@@ -19,6 +19,7 @@ function Posts(props) {
   const [posts, setPosts] = useState([]);
   const [responseMsg, setResponseMsg] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const[isEnd , setIsEnd] = useState(false);
 
   const fetchData = async () => {
     let responseData;
@@ -28,6 +29,7 @@ function Posts(props) {
       const response = await fetch(`/api/products`, {
         headers: {
           "Content-Type": "application/json",
+           skip  : posts.length
         },
       });
 
@@ -42,6 +44,11 @@ function Posts(props) {
       setPosts((prev) => {
         return [...prev, ...products];
       });
+
+      if(products.length<3)
+      {
+        setIsEnd(true);
+      }
       setIsLoading(false);
     } catch (error) {
       const errorMessage = ("ERROR : ", error.message);
@@ -104,7 +111,7 @@ function Posts(props) {
           </div>
         ))
       )}
-      <button style={{ marginTop: "10px" }}>Load more...</button>
+    {isEnd===true ? null :  <button onClick={fetchData} style={{ marginBottom:"10px" }}>Load more...</button> }
     </div>
   );
 }
