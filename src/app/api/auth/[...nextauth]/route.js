@@ -6,6 +6,7 @@ import connectToDB from "../../../../../utlis/connectMongo";
 import userModal from "../../../../../utlis/model/user";
 import bcrypt from "bcryptjs";
 import JWT from "jsonwebtoken";
+import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 export const authOptions = {
@@ -78,6 +79,12 @@ export const authOptions = {
   ],
 
   callbacks: {
+
+    async redirect({url , baseUrl})
+    {
+     return baseUrl;
+    } ,
+
     async jwt({ token, user, account, profile, isNewUser }) {
       if (account) {
         token.accessToken = account.access_token;

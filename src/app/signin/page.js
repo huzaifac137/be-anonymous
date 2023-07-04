@@ -93,7 +93,6 @@ function Signin() {
         }}
         onClick={() =>
           signIn("google", {
-            callbackUrl: `/`,
           })
         }
         className={styles.btn}
