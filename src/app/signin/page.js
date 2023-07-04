@@ -92,7 +92,7 @@ function Signin() {
           cursor: "pointer",
         }}
         onClick={() =>
-          signIn("google", {
+          signIn("google", { callbackUrl : "/api/auth/callback/google"
           })
         }
         className={styles.btn}

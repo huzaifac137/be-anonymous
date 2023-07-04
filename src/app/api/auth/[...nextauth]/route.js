@@ -80,10 +80,7 @@ export const authOptions = {
 
   callbacks: {
 
-    async redirect({url , baseUrl})
-    {
-     return baseUrl;
-    } ,
+    
 
     async jwt({ token, user, account, profile, isNewUser }) {
       if (account) {
