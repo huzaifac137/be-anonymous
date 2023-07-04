@@ -117,11 +117,11 @@ Google console project with client id and secret.
 4. Create your .env file in root dir and include following keys:
    ```js
      CLIENT_ID=...
-ClIENT_SECRET=...
-NEXTAUTH_SECRET=....
-NEXTAUTH_URL=http://localhost:3000
-NEXT_PUBLIC_VERCEL_URL=http://localhost:3000
-NEXT_PUBLIC_MONGO_URI=......
+     ClIENT_SECRET=...
+    NEXTAUTH_SECRET=....
+   NEXTAUTH_URL=http://localhost:3000
+    NEXT_PUBLIC_VERCEL_URL=http://localhost:3000
+    NEXT_PUBLIC_MONGO_URI=......
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -186,6 +186,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
+<h3>
 Your Name - [@huzaifa_c137](https://twitter.com/huzaifa_c137) - huzmanbutt@gmail.com
 
 Project Link: [https://github.com/huzaifac137/be-anonymous](https://github.com/huzaifac137/be-anonymous)
@@ -197,7 +198,7 @@ Project Link: [https://github.com/huzaifac137/be-anonymous](https://github.com/h
 <!-- ACKNOWLEDGMENTS -->
 <!-- ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+<!-- Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
@@ -208,11 +209,11 @@ Use this space to list resources you find helpful and would like to give credit 
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p> --> -->
 
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
+MARKDOWN LINKS & IMAGES
 https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
