@@ -13,6 +13,7 @@ function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const[responseMsg , setResponseMsg] = useState("");
   const { data, status } = useSession();
   const navigator = useRouter();
 
@@ -37,9 +38,20 @@ function Signin() {
         email: email,
         password: password,
         callbackUrl: `/`,
+        redirect : false
+      
       });
+
+      if(result.error)
+      {
+        
+      const parsed =   JSON.parse(result.error);
+ 
+       setResponseMsg(parsed.errors  + " :  code " + parsed.status)
+      }
+
     } catch (Err) {
-      console.log(Err.message + "  " + Err.code);
+      console.log(Err);
     }
   };
 
@@ -99,6 +111,7 @@ function Signin() {
         <Image src={google} width={25} height={25} alt="google login" />
         Login
       </div>
+   {responseMsg!=="" ? <h3>{responseMsg}</h3> : null}
     </div>
   );
 }

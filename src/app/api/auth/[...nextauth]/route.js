@@ -40,9 +40,14 @@ export const authOptions = {
           try {
             userr = await userModal.findOne({ email: email });
           } catch (err) {
-            console.log(err);
+            const error = new Error(JSON.stringify({ errors: "something went wrongg ", status: 500 }));
+            error.code = 500;
+            throw error;
+          }
 
-            const error = new Error("No user is registered with this email!");
+          if(!userr)
+          {
+            const error = new Error(JSON.stringify({ errors: "this email is not registered", status: 500 }));
             error.code = 500;
             throw error;
           }
@@ -51,14 +56,13 @@ export const authOptions = {
           try {
             compare = await bcrypt.compare(password, userr.password);
           } catch (err) {
-            const error = new Error("Something went wrong!");
+            const error = new Error(JSON.stringify({ errors: "something went wrong ", status: 500 }));
             error.code = 500;
             throw error;
           }
 
           if (compare !== true) {
-            const error = new Error("Password is wrong!");
-            error.code = 403;
+            const error = new Error( JSON.stringify({ errors: "password is wrong ", status: 403 }));
             throw error;
           }
 
