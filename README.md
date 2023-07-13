@@ -74,10 +74,22 @@
 
 
 This is a social media platform where 
+
+
 1)Users can post their opinions and thoughts while remaining anonymous without being judged , threatened , humilated .
+
+
 2)Other users can upvote and downvote the anonymous opinions and can also comment on posts . Only the person who posted can see their own name , others will not be able to see it.
+
+
 3)There is also an option for anonymous group chatting.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### Important
+
+socket for chatting is hosted in seperate nodejs app which is not available in thi repo. contact me for that code 
+huzmanbutt@gmail.com
 
 
 
