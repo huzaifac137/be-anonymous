@@ -39,6 +39,8 @@ function NavBar() {
           >
             Create Post
           </Link>
+
+          <Link href="/chatroom"   style={{ color: pathname === "/chatroom" ? "white" : "grey" }}> chat-room </Link>
         </>
       ) : null}
     </nav>
