@@ -2,23 +2,41 @@
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useState  , useRef} from "react";
+import styles from "./page.module.css";
+import hamburger from "../public/images/hamburger.png";
+import close from "../public/images/close.png";
+import Image from "next/image";
 
 function NavBar() {
+  const menuRef = useRef();
   const pathname = usePathname();
   const { data: session } = useSession();
+  const[menuIsOpen , setMenuIsOpen] = useState(false);
+
+  const handleMenu=()=>{
+    if(menuIsOpen===false)
+    {
+      setMenuIsOpen((prev)=> !menuIsOpen);
+
+
+    }
+
+    else
+    {
+    
+      setMenuIsOpen((prev)=>!prev);
+    }
+  
+  }
 
   return (
-    <nav
-      style={{
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        margin: "0 auto",
-        width: "100%",
-        marginTop: "50px",
-      }}
+    <>
+      <div className={styles.ham} onClick={handleMenu}>
+       <Image src={menuIsOpen===true ? close : hamburger}  width={menuIsOpen===true ? 30 : 50}  height={menuIsOpen===true ? 30 : 50}/>
+      </div>
+    <nav className={menuIsOpen===false ?  styles.navbar : styles.open} ref={menuRef}
+ 
     >
       {session?.sub ? (
         <>
@@ -44,6 +62,7 @@ function NavBar() {
         </>
       ) : null}
     </nav>
+    </>
   );
 }
 

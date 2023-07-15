@@ -1,0 +1,65 @@
+.navbar
+{
+    display: flex ;
+    align-items: center;
+    flex-direction: row;
+   justify-content: space-evenly;
+    margin : 0 auto;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.open
+{
+    display: flex ;
+    align-items: center;
+    flex-direction: row;
+   justify-content: space-evenly;
+    margin : 0 auto;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.navbarwhilechangingwidth
+{
+    display: flex ;
+    align-items: center;
+    flex-direction: row;
+   justify-content: space-evenly;
+    margin : 0 auto;
+    width: 100%;
+    margin-top: 50px;
+}
+
+
+.ham {
+    display: none;
+}
+
+
+@media only screen and (max-width:650px)
+{
+    .navbar
+    {
+        display: none;
+
+    }
+
+    
+
+    .ham{
+        display: flex;
+       margin : 5px;
+    }
+
+    .open
+    {
+        display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 10px;
+       
+    }
+
+
+}
