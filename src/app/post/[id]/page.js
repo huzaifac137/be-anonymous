@@ -236,7 +236,7 @@ function Page({}) {
           {" "}
           <h3 style={{ fontSize: "15px" }}> {query.creatorName} </h3>
           <h2 className={styles.hh2}> {query.title}</h2>
-          <h3 className={styles.hh3}> {query.description}</h3>
+          <p className={styles.hh3}> {query.description}</p>
           <div className={styles.voteSection}>
             <div>
               {" "}
