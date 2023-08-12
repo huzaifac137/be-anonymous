@@ -120,7 +120,7 @@ a {
 
 @keyframes slideOut{
   from {
-    transform: scale(0px);
+    transform: translateX(0px);
   }
 
   to{
