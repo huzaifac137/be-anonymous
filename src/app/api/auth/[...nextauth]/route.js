@@ -40,7 +40,7 @@ export const authOptions = {
           try {
             userr = await userModal.findOne({ email: email });
           } catch (err) {
-            const error = new Error(JSON.stringify({ errors: "something went wrongg ", status: 500 }));
+            const error = new Error(JSON.stringify({ errors: "something went wrong ", status: 500 }));
             error.code = 500;
             throw error;
           }

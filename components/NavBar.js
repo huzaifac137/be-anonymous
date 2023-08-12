@@ -40,25 +40,26 @@ function NavBar() {
     >
       {session?.sub ? (
         <>
-          <Link
+          <Link onClick={handleMenu}
             href="/my-profile"
             style={{ color: pathname === "/my-profile" ? "white" : "grey" }}
           >
             My Profile
           </Link>
 
-          <Link href="/" style={{ color: pathname === "/" ? "white" : "grey" }}>
+          <Link onClick={handleMenu} href="/" style={{ color: pathname === "/" ? "white" : "grey" }}>
             All Posts
           </Link>
 
           <Link
+          onClick={handleMenu}
             href="/post/create"
             style={{ color: pathname === "/post/create" ? "white" : "grey" }}
           >
             Create Post
           </Link>
 
-          <Link href="/chatroom"   style={{ color: pathname === "/chatroom" ? "white" : "grey" }}> chat-room </Link>
+          <Link href="/chatroom" onClick={handleMenu}   style={{ color: pathname === "/chatroom" ? "white" : "grey" }}> chat-room </Link>
         </>
       ) : null}
     </nav>

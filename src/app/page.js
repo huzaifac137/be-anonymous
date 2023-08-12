@@ -9,7 +9,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Huzaifa",
+  title: "Huzaifa Bin Shahbaz",
   description:
     "This is a next js app where you canfind the best developers across the pakistan",
 };

@@ -28,7 +28,9 @@
   height: 70%;
   background-color: rgb(51, 50, 50);
   border-radius: 7px;
+  animation: slideInLeft 0.4s ease-out 0s 1 normal both;
 }
+
 
 .comment {
   display: flex;
@@ -39,3 +41,16 @@
   word-wrap: break-word;
   margin-left: 17px;
 }
+
+
+@keyframes slideInLeft{
+    from {
+      transform: translateX(-500px);
+    }
+
+    to{
+      transform: translateX(0px);
+    }
+}
+
+

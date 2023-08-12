@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./commentsModal.module.css";
+
 
 function CommentsModal({ postId, setModalIsOpened }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -8,6 +9,9 @@ function CommentsModal({ postId, setModalIsOpened }) {
   const [comments, setComments] = useState([]);
   const [loadMore, setLoadMore] = useState(0);
   const [isEndOfComments, setIsEndOfComments] = useState(false);
+
+  const modalRef =useRef(null);
+
 
   const fetchComments = async (signal, commentsLength) => {
     let responseData;
@@ -49,7 +53,10 @@ function CommentsModal({ postId, setModalIsOpened }) {
   };
 
   const handleModal = () => {
-    setModalIsOpened(false);
+    modalRef.current.className="modalClosed";
+    setTimeout(()=>{
+      setModalIsOpened(false);
+    },1000);
   };
 
   useEffect(() => {
@@ -65,7 +72,7 @@ function CommentsModal({ postId, setModalIsOpened }) {
 
   return (
     <div className={styles.modalContainer}>
-      <div className={styles.actualModal}>
+      <div className={styles.actualModal} ref={modalRef}>
         <button
           onClick={handleModal}
           style={{
