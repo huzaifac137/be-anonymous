@@ -42,7 +42,9 @@ function ChatRoom(props) {
         socket.current.emit("sendMessage" , sentMessage);
         setMessages((prev)=>{
             return [...prev , sentMessage]
-        });
+        }); 
+        
+         setSentMessage("");
     }
 
 
